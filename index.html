@@ -13,6 +13,7 @@
 
 <body>
     <div class="nav">
+      <div class="logo"></div>
       <div class="links">
           <div class="active"></div>
           <ul>
@@ -23,27 +24,31 @@
           </ul>
       </div>
     </div>
-    <div class="container">
-      <div class="content" id="about">
+    <div class="container" id="about">
+      <div class="content">
         <h1> Henry Millison </h1>
-        <p class="left">
-           I am a 22 year-old studying Informatics at the University of Michigan.
-           This interdisciplinary major between the the College of Engineering,
-           Department of Statistics and School of Information combines a study of human computer interaction,
-           big data analysis, and software development.
-        </p>
-        <p class="left">
-           Through my studies and work experience, I cultivated my programming skills
-           together with an understanding of how users interpret and understand what I create.
-        </p>
-        <p class="right">
+        <div class="col-2">
+          <p>
+             I am a 22 year-old studying Informatics at the University of Michigan.
+             This interdisciplinary major between the the College of Engineering,
+             Department of Statistics and School of Information combines a study of human computer interaction,
+             big data analysis, and software development.
+           </p>
+           <p>
+            Through my studies and work experience, I cultivated my programming skills
+             together with an understanding of how users interpret and understand what I create.
+           </p>
+        </div>
+        <div class="col-2">
+          <p>
            I aspire to design and develop things that change people's lives in a positive way,
            whether it is making a mundane task easier or completely revolutionizing the way technology is involved in our lives.
-        </p>
-        <p class="right">
+          </p>
+          <p>
            My interests include web development, human computer interaction, data visualization,
            UI design, digital media, hackathons, entrepreneurship, cooking and music.
-        </p>
+          </p>
+        </div>
         </div>
     </div>
      <div class="container" id="exp">
@@ -55,8 +60,8 @@
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <h4 class="timeline-title">Nutshell</h4>
-                      <p><small class="text-muted">Software Engineer Intern</small></p>
-                      <p><small class="text-muted">May 2014 - August 2014</small></p>
+                      <p><small class="text-muted">Software Engineer</small></p>
+                      <p><small class="text-muted">January 2015 - Present</small></p>
                     </div>
 
                   </div>
@@ -99,9 +104,67 @@
             </ul>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="projects">
       <div class="content">
         <h1>Projects</h1>
+        <div class="row">
+          <div class="col-3">
+             <figure class="effect-zoe">
+              <div class="item tripme"></div>
+              <figcaption>
+
+                <p>TripMe Flights</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-3">
+             <figure class="effect-zoe">
+              <div class="item michtime"></div>
+              <figcaption>
+
+                <p>TripMe Flights</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-3">
+             <figure class="effect-zoe">
+              <div class="item stockbot"></div>
+              <figcaption>
+
+                <p>TripMe Flights</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+             <figure class="effect-zoe">
+              <div class="item fixey" ></div>
+              <figcaption>
+
+                <p>TripMe Flights</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-3">
+             <figure class="effect-zoe">
+              <div class="item livecode" ></div>
+              <figcaption>
+
+                <p>TripMe Flights</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-3">
+              <figure class="effect-zoe">
+                <div class="item recipe" ></div>
+                <figcaption>
+
+                <p>TripMe Flights</p>
+                </figcaption>
+              </figure>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -112,7 +175,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script type="text/javascript">
-      var exp = new Waypoint({
+      var abt = new Waypoint({
         element: $('#about'),
         handler: function(direction) {
           console.log('hello world');
@@ -127,12 +190,17 @@
           $('.active').css('margin-left','100px');
           $('.active').css('width','105px');
         },
-        offset: '50%'
+        offset: '20%'
       })
-
-      $('body').scroll(function(){
-          console.log(pos);
-      });
+      var proj = new Waypoint({
+        element: $('#projects'),
+        handler: function(direction) {
+          console.log('hello world');
+          $('.active').css('margin-left','210px');
+          $('.active').css('width','90px');
+        },
+        offset: '30%'
+      })
   </script>
 </body>
 </html>

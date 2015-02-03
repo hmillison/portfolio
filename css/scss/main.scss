@@ -21,7 +21,8 @@ $max-width: em(2000);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 body{
-	margin-top: calc(75px + 1em);
+	margin-top: 75px;
+	margin-left:0px;
 	background: $bluegrey;
 	font: {
     	family: 'Roboto Slab', serif;
@@ -48,9 +49,17 @@ h1{
 	z-index:10;
    	top: 0;
 	margin-bottom:1em;
+	.logo{
+		float:left;
+		background-image: url('../images/hm-logo-2.png');
+		background-size:100%;
+		background-repeat: no-repeat;
+		height:75px;
+		width:1px;
+	}
 	.active{
 			position:absolute;
-			min-height:calc(75px + 1em);
+			min-height:75px;
 			padding-bottom:1%;
 			width:70px;
 			margin-left:28px;
@@ -82,21 +91,107 @@ h1{
 		h1{
 			text-align:center;
 		}
-		p{
-			&.left{
-				width:50%;
-				float:left;
-			}
-			&.right{
-				width:50%;
-				float:right;
+		.col-2{
+			@include span-columns(5);
+			@include pad();
+		}
+
+		.row{
+			@include row();
+			@include pad(5%);
+		}
+		.col-3{
+			@include span-columns(4);
+			@include pad(1%);
+			height:192px;
+
+
+			figure {
+			  position: relative;
+			  border-radius: 100px;
+			  float: left;
+			  overflow: hidden;
+			  margin: 10px 1%;
+
+			   height:192px;
+			    width:192px;
+			  text-align: center;
+			  cursor: pointer;
+
+			  .item{
+					height:192px;
+					width:192px;
+					@include material-shadow();
+					border-radius: 100px;
+					background-position:50% 50%;
+					background-repeat:no-repeat;
+					background-size:200%;
+					margin-left:auto;
+					margin-right:auto;
+					&.livecode{
+						background-image: url('../images/livecode.png');
+					}
+					&.michtime{
+						background-image: url('../images/michigantime.png');
+					}
+					&.recipe{
+						background-image: url('../images/recipebox.png');
+					}
+					&.fixey{
+						background-image: url('../images/fixey.png');
+					}
+					&.stockbot{
+						background-image: url('../images/stockbot.png');
+					}
+					&.tripme{
+						background-image: url('../images/tripme.png');
+					}
+				}
+			  figcaption {
+			    padding: 2em;
+			    border-radius:100px;
+			    height:192px;
+			    width:192px;
+			    text-transform: uppercase;
+			    font-size: 1.25em;
+			    -webkit-backface-visibility: hidden;
+			    backface-visibility: hidden;
+			    &::before, &::after {
+			      pointer-events: none;
+			    }
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    > a {
+			      position: absolute;
+			      top: 0;
+			      left: 0;
+			      width: 100%;
+			      height: 100%;
+			      z-index: 1000;
+			      text-indent: 200%;
+			      white-space: nowrap;
+			      font-size: 0;
+			      opacity: 0;
+			    }
+			  }
+
+			  p {
+			    margin: 0;
+			    color: black;
+			    letter-spacing: 1px;
+			    font-size: 68.5%;
+			  }
 			}
 		}
+
 		@include pad(3%);
 		@include material-shadow();
 		height:auto;
 		overflow:hidden;
-		margin: 0 1em 1em 1em;
+		margin: 1em 1em 0em 1em;
 		border-radius: 5px;
 		background: $white
 	}
@@ -104,16 +199,9 @@ h1{
 
 
 
-
-
-
-
-
-
-
-
-
-/* timeline */
+/*---------------*/
+/***** Timeline *****/
+/*---------------*/
 
 .timeline {
   list-style: none;
@@ -165,8 +253,7 @@ h1{
         border-radius: 2px;
         padding: 20px;
         position: relative;
-        -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        @include material-shadow();
         &:before {
           position: absolute;
           top: 26px;
@@ -276,3 +363,118 @@ h1{
     }
   }
 }
+
+/*---------------*/
+/***** Projects *****/
+/*---------------*/
+
+figure.effect-zoe {
+  figcaption {
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    font-weight: 700;
+    height: 3.75em;
+    color: #3c4a50;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  h2 {
+    float: left;
+  }
+  p.icon-links a {
+    float: right;
+    color: #3c4a50;
+    font-size: .5em;
+  }
+  &:hover p.icon-links a {
+    &:hover, &:focus {
+      color: #252d31;
+    }
+  }
+  p.description {
+    position: absolute;
+    bottom: 8em;
+    padding: 2em;
+    color: #fff;
+    text-transform: none;
+    font-size: 90%;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+    -webkit-backface-visibility: hidden;
+    /* Fix for Chrome 37.0.2062.120 (Mac) */
+  }
+  h2 {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, 200%, 0);
+    transform: translate3d(0, 200%, 0);
+  }
+  p.icon-links a {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, 200%, 0);
+    transform: translate3d(0, 200%, 0);
+    span::before {
+      display: inline-block;
+      padding: 8px 10px;
+      font-family: 'feathericons';
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+.icon-eye::before {
+  content: '\e000';
+}
+
+.icon-paper-clip::before {
+  content: '\e001';
+}
+
+.icon-heart::before {
+  content: '\e024';
+}
+
+figure.effect-zoe {
+  h2 {
+    display: inline-block;
+  }
+  &:hover {
+    p.description {
+      opacity: 1;
+    }
+    figcaption, h2, p.icon-links a {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    h2 {
+      -webkit-transition-delay: 0.05s;
+      transition-delay: 0.05s;
+    }
+    p.icon-links a {
+      &:nth-child(3) {
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        -webkit-transition-delay: 0.15s;
+        transition-delay: 0.15s;
+      }
+      &:first-child {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+
+
+
+
+
