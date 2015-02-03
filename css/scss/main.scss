@@ -109,19 +109,30 @@ h1{
 			figure {
 			  position: relative;
 			  border-radius: 100px;
+			  @include material-shadow();
 			  float: left;
 			  overflow: hidden;
 			  margin: 10px 1%;
-
 			   height:192px;
 			    width:192px;
 			  text-align: center;
 			  cursor: pointer;
-
+			  .overlay{
+			  	position:relative;
+			  	top:0px;
+			  	width:192px;
+			  	height:192px;
+			  	background-color:$bluegrey;
+			  	border-radius:100px;
+			  	opacity:.3;
+			  	@include transition(opacity 1s);
+			  	&:hover{
+			  		opacity:.7;
+			  	}
+			  }
 			  .item{
 					height:192px;
 					width:192px;
-					@include material-shadow();
 					border-radius: 100px;
 					background-position:50% 50%;
 					background-repeat:no-repeat;
@@ -150,6 +161,7 @@ h1{
 			  figcaption {
 			    padding: 2em;
 			    border-radius:100px;
+			    color:#green3;
 			    height:192px;
 			    width:192px;
 			    text-transform: uppercase;
@@ -180,7 +192,7 @@ h1{
 
 			  p {
 			    margin: 0;
-			    color: black;
+			    color: #fff;
 			    letter-spacing: 1px;
 			    font-size: 68.5%;
 			  }
@@ -375,7 +387,6 @@ figure.effect-zoe {
     padding: 1em;
     font-weight: 700;
     height: 3.75em;
-    color: #3c4a50;
     -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
     -webkit-transform: translate3d(0, 100%, 0);
