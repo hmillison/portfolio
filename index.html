@@ -110,11 +110,25 @@
       </div>
     </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
   <script type="text/javascript">
-      $("#exp").scroll(function() { //.box is the class of the div
-        $('.active').css('margin-left','40px');
-      });
-
+      var exp = new Waypoint({
+        element: $('#about'),
+        handler: function(direction) {
+          console.log('hello world');
+          $('.active').css('margin-left','28px');
+          $('.active').css('width','70px');
+        },
+      })
+      var exp = new Waypoint({
+        element: $('#exp'),
+        handler: function(direction) {
+          console.log('hello world');
+          $('.active').css('margin-left','100px');
+          $('.active').css('width','105px');
+        },
+        offset: '50%'
+      })
 
       $('body').scroll(function(){
           console.log(pos);
