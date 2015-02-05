@@ -19,9 +19,16 @@ $bluegrey: #95A5A5;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
+@mixin imgfilter($grey, $blur){
+    -webkit-filter: $grey $blur;
+    -moz-filter: $grey $blur;
+    -o-filter: $grey $blur;
+    -ms-filter: $grey $blur;
+    filter: $grey $blur;
+}
+
 body{
-	margin-top: 75px;
-	margin-left:0px;
+  margin: 75px 0px 0px 0px;
 	background: $bluegrey;
 	font: {
     	family: 'Roboto Slab', serif;
@@ -128,12 +135,33 @@ h1{
 			@include pad(5%);
       width: inherit;
       margin-right:0;
+      @media(max-width: 1666px){
+        @include pad(3.4%);
+      }
 		}
 
 
 	}
 }
 
+.socialmedia{
+  text-align:center;
+  a{
+    text-decoration: none;
+  }
+  .fa {
+    color: #000;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+    height: 30px;
+    padding-right: 5px;
+    transition: color .4s;
+      &:hoveR{
+        color:$darkgrey;
+      }
+    }
+}
 
 
 /*-------------------*/
@@ -320,15 +348,14 @@ figure {
   .item{
     height: 300px;
     width: 350px;
-    background-position: 60% 50%;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     margin-left:auto;
     margin-right:auto;
-    -webkit-filter: grayscale(80%);
-    filter: grayscale(80%);
+    @include imgfilter(grayscale(80%),blur(1px));
+
     &.mobile{
-      background-position: 50% 50%;
       background-size: 270%;
     }
     &.livecode{
@@ -418,7 +445,7 @@ figure {
       transform: perspective(1000px) translate3d(0, 0, 0);
     }
     h2, p {
-      background: $green2;
+      background: $white;
       color: black;
     }
     h2 {
