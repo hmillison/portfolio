@@ -118,6 +118,27 @@ h1{
     margin: 1em 1em 0em 1em;
     border-radius: 5px;
     background: $white;
+    @media (max-width: 800px){
+      margin: 0;
+    }
+    .project-grid{
+      @include outer-container;
+      .row{
+        @include fill-parent();
+        @include row(table);
+        .col-3{
+        @include span-columns(4);
+        @include omega();
+           @media (max-width: 1160px){
+                @include span-columns(6);
+
+          }
+          @media (max-width: 800px){
+                @include span-columns(6);
+          }
+        }
+      }
+    }
 		h1{
 			text-align:center;
 		}
@@ -126,19 +147,8 @@ h1{
 			@include pad();
 		}
 
-		.row{
-			@include row();
-			@include pad(1%);
-		}
-		.col-3{
-			@include span-columns(4);
-			@include pad(5%);
-      width: inherit;
-      margin-right:0;
-      @media(max-width: 1666px){
-        @include pad(3.4%);
-      }
-		}
+
+
 
 
 	}
@@ -339,15 +349,13 @@ figure {
   float: left;
   overflow: hidden;
   margin: 10px 1%;
-  min-width: 320px;
-  max-width: 480px;
-  max-height: 360px;
   text-align: center;
   cursor: pointer;
-
+  height: 300px;
+  width: 346px;
   .item{
-    height: 300px;
-    width: 350px;
+    height: inherit;
+    width: inherit;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -378,7 +386,6 @@ figure {
     }
   }
   figcaption {
-    padding: 2em;
     color:#green3;
     height:192px;
     width:192px;
