@@ -343,7 +343,7 @@ figure {
   text-align: center;
   cursor: pointer;
   height:250px;
-  width:50%;
+  width:70%;
   margin-left: auto;
   margin-right: auto;
 
@@ -463,7 +463,7 @@ figure {
       &:before {
         @include material-shadow();
       }
-      @include media (max-width 1200px){
+      @include media (max-width 800px){
           font-size: 90%;
       }
     }
