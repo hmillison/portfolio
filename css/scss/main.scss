@@ -1,5 +1,6 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
+
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300,700);
 
@@ -19,12 +20,12 @@ $bluegrey: #95A5A5;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
-@mixin imgfilter($grey, $blur){
-    -webkit-filter: $grey $blur;
-    -moz-filter: $grey $blur;
-    -o-filter: $grey $blur;
-    -ms-filter: $grey $blur;
-    filter: $grey $blur;
+@mixin imgfilter($param){
+    -webkit-filter: $param;
+    -moz-filter: $param;
+    -o-filter: $param;
+    -ms-filter: $param;
+    filter: $param;
 }
 
 body{
@@ -127,14 +128,12 @@ h1{
         @include fill-parent();
         @include row(table);
         .col-3{
-        @include span-columns(4);
-        @include omega();
-           @media (max-width: 1160px){
-                @include span-columns(6);
-
-          }
-          @media (max-width: 800px){
-                @include span-columns(6);
+          @include pad(2%);
+          @include span-columns(4);
+          height:250px;
+           @include media (max-width 1160px){
+             @include span-columns(6);
+             @include shift(3);
           }
         }
       }
@@ -351,17 +350,18 @@ figure {
   margin: 10px 1%;
   text-align: center;
   cursor: pointer;
-  height: 300px;
-  width: 346px;
+  @include fill-parent();
+  height:100%;
+
   .item{
-    height: inherit;
-    width: inherit;
+    @include fill-parent();
+    height:100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     margin-left:auto;
     margin-right:auto;
-    @include imgfilter(grayscale(80%),blur(1px));
+    @include imgfilter(grayscale(80%));
 
     &.mobile{
       background-size: 270%;
@@ -452,12 +452,12 @@ figure {
       transform: perspective(1000px) translate3d(0, 0, 0);
     }
     h2, p {
-      background: $white;
+      background: $grey;
       color: black;
     }
     h2 {
       position: relative;
-      margin-top: 2em;
+      margin-top: 0;
       padding: 0.25em;
       &:before {
         @include material-shadow();
