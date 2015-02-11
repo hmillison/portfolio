@@ -20,6 +20,11 @@ $bluegrey: #95A5A5;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
+@mixin center-margin(){
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @mixin imgfilter($param){
     -webkit-filter: $param;
     -moz-filter: $param;
@@ -129,6 +134,16 @@ h1{
         @include row(table);
       }
     }
+    .photo{
+    background-image: url('../images/headshot.jpg');
+    text-align: center;
+    background-size:100%;
+    background-repeat: no-repeat;
+    height:140px;
+    width:145px;
+    border-radius:100px;
+    @include center-margin();
+    }
     .text{
       @include pad(5%);
       text-align: center;
@@ -160,8 +175,7 @@ h1{
   }
   .fa {
     color: #000;
-    margin-left: auto;
-    margin-right: auto;
+    @include center-margin();
     display: inline;
     height: 30px;
     padding-right: 5px;
@@ -363,8 +377,7 @@ figure {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left:auto;
-    margin-right:auto;
+    @include center-margin();
     @include imgfilter(grayscale(80%));
 
     &.mobile{
