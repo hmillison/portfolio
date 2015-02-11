@@ -67,9 +67,8 @@ h1{
 		background-repeat: no-repeat;
 		height:75px;
 		width:120px;
-    @media (max-width: 520px){
-      height: 40px;
-      width: 50px;
+    @media (max-width: 400px){
+      display:none;
     }
 	}
 	.active{
@@ -87,7 +86,7 @@ h1{
 	.links{
    	white-space: nowrap;
 		float: right;
-    @media (max-width: 520px){
+    @media (max-width: 400px){
       float:none;
     }
 
@@ -100,9 +99,9 @@ h1{
 				line-height: 60px;
 				margin-right: 16px;
 				float: left;
-        @media (max-width: 520px){
+        @media (max-width: 400px){
           margin-left: 0px;
-          font-size: .9em;
+          font-size: .8em;
         }
 
 			}
