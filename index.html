@@ -20,10 +20,10 @@
       <div class="links">
           <div class="active"></div>
           <ul>
-            <li>ABOUT</li>
-            <li>EXPERIENCE</li>
-            <li>PROJECTS</li>
-            <li>CONTACT</li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#exp">EXPERIENCE</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
           </ul>
       </div>
     </div>
@@ -180,9 +180,18 @@
           </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="contact">
       <div class="content">
         <h1>Contact</h1>
+        <div class="text">
+          <p>
+            If you have any questions or just want to say hi, feel free to contact me via
+            <a href="mailto:hmillison@gmail.com">email</a>.
+          </p>
+          <p>
+            Or find me on any of the social networks below!
+          </p>
+        </div>
         <div class="socialmedia">
           <a href="/portfolio/henrymillison_resume.pdf" target="_blank">  <i class="fa fa-file-text fa-3x"> </i></a>
           <a href="http://www.linkedin.com/in/hmillison/" target="_blank">  <i class="fa fa-linkedin fa-3x">  </i></a>
@@ -194,10 +203,16 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script type="text/javascript">
+      $('a').click(function(){
+          $('html, body').animate({
+              scrollTop: $( $.attr(this, 'href') ).offset().top
+          }, 500);
+          return false;
+      });
+
       var abt = new Waypoint({
         element: $('#about'),
         handler: function(direction) {
-          console.log('hello world');
           $('.active').css('margin-left','28px');
           $('.active').css('width','70px');
         },
@@ -205,7 +220,6 @@
       var exp = new Waypoint({
         element: $('#exp'),
         handler: function(direction) {
-          console.log('hello world');
           $('.active').css('margin-left','100px');
           $('.active').css('width','105px');
         },
@@ -214,8 +228,15 @@
       var proj = new Waypoint({
         element: $('#projects'),
         handler: function(direction) {
-          console.log('hello world');
           $('.active').css('margin-left','210px');
+          $('.active').css('width','90px');
+        },
+        offset: '30%'
+      })
+      var proj = new Waypoint({
+        element: $('#contact'),
+        handler: function(direction) {
+          $('.active').css('margin-left','301px');
           $('.active').css('width','90px');
         },
         offset: '30%'
