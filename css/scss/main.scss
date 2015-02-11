@@ -463,6 +463,9 @@ figure {
       &:before {
         @include material-shadow();
       }
+      @include media (max-width 1200px){
+          font-size: 90%;
+      }
     }
     p {
       @include material-shadow();
