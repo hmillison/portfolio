@@ -56,6 +56,10 @@ h1{
 	z-index:10;
   top: 0;
 	margin-bottom:1em;
+  a{
+    text-decoration: none;
+    color: black;
+  }
 	.logo{
 		float:left;
 		background-image: url('../images/hm-logo-2.png');
@@ -119,15 +123,20 @@ h1{
     margin: 1em 1em 0em 1em;
     border-radius: 5px;
     background: $white;
-
     .project-grid{
       @include outer-container;
       .row{
         @include fill-parent();
         @include row(table);
-        .col-3{
-
-        }
+      }
+    }
+    .text{
+      @include pad(5%);
+      text-align: center;
+      a{
+        text-decoration: none;
+        font-weight:700;
+        color: $green3;
       }
     }
 		h1{
