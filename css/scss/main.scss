@@ -127,6 +127,9 @@ h1{
 .container{
 	@include fill-parent();
 	@include row(table);
+  &#contact{
+    margin-bottom:1em;
+  }
 	.content{
     @include pad(3%);
     @include material-shadow();
