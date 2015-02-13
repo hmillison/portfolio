@@ -4,8 +4,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300,700);
 
-$orange : red;
-$blue : #3498DB;
 $green1 : #E8F5E9;
 $green2 : #A6D5A9;
 $green3 : #77BF7B;
@@ -48,13 +46,14 @@ h1{
 		family: 'Lato', san-serif;
 		weight: bold;
 	}
+  color: $green3;
 }
 
 
 .nav{
 	@include material-shadow();
 	min-height:75px;
-	background-color:$grey;
+	background-color:$green2;
 	text-align: center;
 	width: 100%;
 	position: fixed;
@@ -119,6 +118,8 @@ h1{
 .container{
 	@include fill-parent();
 	@include row(table);
+  @include center-margin();
+  max-width: 1000px;
 	.content{
     @include pad(3%);
     @include material-shadow();
@@ -132,6 +133,10 @@ h1{
       .row{
         @include fill-parent();
         @include row(table);
+        .col-3{
+        @include fill-parent();
+
+        }
       }
     }
     .photo{
@@ -157,8 +162,11 @@ h1{
 			text-align:center;
 		}
 		.col-2{
-			@include span-columns(5);
-			@include pad();
+      @include media(min-width 700px){
+        @include span-columns(5);
+        @include pad();
+      }
+
 		}
 
 
@@ -358,8 +366,8 @@ h1{
 
 figure {
   position: relative;
-  @include material-shadow();
-  overflow: hidden;
+  @include fill-parent();
+  border: 15px solid transparent;
   text-align: center;
   cursor: pointer;
   height:250px;
@@ -377,8 +385,8 @@ figure {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    @include material-shadow();
     @include center-margin();
-    @include imgfilter(grayscale(80%));
 
     &.mobile{
       background-size: 270%;
@@ -403,7 +411,6 @@ figure {
     }
   }
   figcaption {
-    color:#green3;
     height:192px;
     width:192px;
     text-transform: uppercase;
@@ -444,7 +451,6 @@ figure {
   &.effect-steve {
     z-index: auto;
     overflow: visible;
-    background: #000;
     &:before, h2:before {
       position: absolute;
       top: 0;
@@ -472,7 +478,7 @@ figure {
       transform: perspective(1000px) translate3d(0, 0, 0);
     }
     h2, p {
-      background: $grey;
+      background: $green2;
       color: black;
     }
     h2 {
@@ -490,7 +496,6 @@ figure {
       @include material-shadow();
       margin-top: 1em;
       padding: 0.5em;
-      font-weight: 800;
       opacity: 0;
       -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
       transition: opacity 0.35s, transform 0.35s;
