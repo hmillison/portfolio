@@ -21,8 +21,8 @@
           <div class="active"></div>
           <ul>
             <li><a href="#about">ABOUT</a></li>
-            <li><a href="#exp">EXPERIENCE</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#work">EXPERIENCE</a></li>
+            <li><a href="#make">PROJECTS</a></li>
             <li><a href="#contact">CONTACT</a></li>
           </ul>
       </div>
@@ -219,7 +219,9 @@
           $('.active').css('margin-left','28px');
           $('.active').css('width','70px');
         },
-      })
+        offset: '-20%'
+      });
+
       var exp = new Waypoint({
         element: $('#exp'),
         handler: function(direction) {
@@ -227,7 +229,8 @@
           $('.active').css('width','105px');
         },
         offset: '20%'
-      })
+      });
+
       var proj = new Waypoint({
         element: $('#projects'),
         handler: function(direction) {
@@ -235,15 +238,16 @@
           $('.active').css('width','90px');
         },
         offset: '30%'
-      })
-      var proj = new Waypoint({
+      });
+
+      var contact = new Waypoint({
         element: $('#contact'),
         handler: function(direction) {
           $('.active').css('margin-left','301px');
           $('.active').css('width','90px');
         },
-        offset: '30%'
-      })
+        offset: '45%'
+      });
   </script>
 </body>
 </html>
