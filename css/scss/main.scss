@@ -43,7 +43,7 @@ body{
   	}
 }
 
-h1{
+h1, h2, h3{
 	font: {
 		family: 'Lato', san-serif;
 		weight: bold;
@@ -163,6 +163,9 @@ h1{
     }
     .text{
       @include pad(5%);
+      &.resume{
+        @include pad(0%);
+      }
       text-align: center;
       a{
         text-decoration: none;
@@ -180,11 +183,6 @@ h1{
       }
 
 		}
-
-
-
-
-
 	}
 }
 
@@ -425,7 +423,6 @@ figure {
   figcaption {
     height:192px;
     width:192px;
-    text-transform: uppercase;
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -497,6 +494,7 @@ figure {
       position: relative;
       margin-top: 0;
       padding: 0.25em;
+      font-size:1em;
       &:before {
         @include material-shadow();
       }
@@ -508,7 +506,7 @@ figure {
       @include material-shadow();
       margin-top: 1em;
       padding: 0.5em;
-      opacity: 0;
+      opacity: 1;
       -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
       transition: opacity 0.35s, transform 0.35s;
       -webkit-transform: scale3d(0.9, 0.9, 1);
