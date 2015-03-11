@@ -19,6 +19,15 @@ $darkblue: #130f30;
   box-shadow: 0 1px 4px rgba(19, 15, 48, 0.24);
 }
 
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
 @mixin center-margin(){
   margin-left: auto;
   margin-right: auto;
@@ -399,29 +408,30 @@ figure {
     @include center-margin();
 
     &.mobile{
-      background-size: 270%;
+      background-size: 250%;
     }
     &.livecode{
-      background-image: url('../images/livecode.png');
+      background-color: #00BCD4;
     }
     &.michtime{
-      background-image: url('../images/michigantime.png');
+      background-color: #1565C0;
     }
     &.recipe{
-      background-image: url('../images/recipebox.png');
+      background-color: #673AB7;
     }
     &.fixey{
-      background-image: url('../images/fixey.png');
+      background-color: #FB8C00;
     }
-    &.stockbot{
-      background-image: url('../images/stockbot.png');
+    &.umichcourse{
+      background-color: #607D8B;
     }
     &.tripme{
-      background-image: url('../images/tripme.png');
+      background-color: #F4511E;
     }
   }
   figcaption {
-    height:192px;
+    @include vertical-align();
+    position:absolute;
     width:192px;
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
@@ -429,11 +439,8 @@ figure {
     &::before, &::after {
       pointer-events: none;
     }
-    position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     > a {
       position: absolute;
       top: 0;
@@ -467,7 +474,6 @@ figure {
       z-index: -1;
       width: 100%;
       height: 100%;
-      background: #000;
       content: '';
       -webkit-transition: opacity 0.35s;
       transition: opacity 0.35s;
@@ -487,7 +493,7 @@ figure {
       transform: perspective(1000px) translate3d(0, 0, 0);
     }
     h2, p {
-      background: $green2;
+      background: $white;
       color: $darkblue;
     }
     h2 {
@@ -495,6 +501,9 @@ figure {
       margin-top: 0;
       padding: 0.25em;
       font-size:1em;
+      -webkit-transition: -webkit-transform 0.35s;
+      -webkit-transform: scale3d(0.9, 0.9, 1);
+      transform: scale3d(0.9, 0.9, 1);
       &:before {
         @include material-shadow();
       }
@@ -506,9 +515,7 @@ figure {
       @include material-shadow();
       margin-top: 1em;
       padding: 0.5em;
-      opacity: 1;
-      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-      transition: opacity 0.35s, transform 0.35s;
+      -webkit-transition: -webkit-transform 0.35s;
       -webkit-transform: scale3d(0.9, 0.9, 1);
       transform: scale3d(0.9, 0.9, 1);
     }
@@ -523,8 +530,7 @@ figure {
       h2:before {
         opacity: 0;
       }
-      p {
-        opacity: 1;
+      p, h2{
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
       }
