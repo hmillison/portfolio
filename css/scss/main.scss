@@ -63,6 +63,7 @@ h1, h2, h3{
 
 .nav{
 	@include material-shadow();
+
 	min-height:75px;
 	background-color:$green2;
 	text-align: center;
@@ -82,36 +83,47 @@ h1, h2, h3{
   }
 	.logo{
 		float:left;
-		background-image: url('../images/hm-logo-2.png');
-		background-size:100%;
-		background-repeat: no-repeat;
-		height:75px;
-		width:120px;
-    @media (max-width: 400px){
-      display:none;
+    display:inline-block;
+    margin-left: 5px;
+    margin-bottom: 0;
+    max-height: 75px;
+    @media (max-width: 640px){
+      float:none;
+      text-align: center;
+    }
+    h1{
+      color:$darkblue;
+      font-family: 'Roboto Slab', serif;
+      @media (max-width: 640px){
+        margin: 0;
+      }
     }
 	}
 	.active{
 			position:absolute;
-			min-height:75px;
+			min-height:76px;
 			padding-bottom:1%;
 			width:70px;
 			margin-left:28px;
 			background-color: $green1;
 			@include transition(all 1s);
-      @media (max-width: 520px){
+      @media (max-width: 640px){
         display:none;
       }
 		}
 	.links{
    	white-space: nowrap;
 		float: right;
-    @media (max-width: 400px){
+    @media (max-width: 640px){
       float:none;
+      text-align: center;
     }
 
 		ul{
 			list-style: none;
+      @media (max-width: 640px){
+        margin: 0;
+      }
 			li{
 				margin-left: -4px;
 				position: relative;
@@ -119,6 +131,9 @@ h1, h2, h3{
 				line-height: 60px;
 				margin-right: 16px;
 				float: left;
+        @media (max-width: 640px){
+          float: none;
+        }
         @media (max-width: 400px){
           margin-left: 0px;
           font-size: .8em;
