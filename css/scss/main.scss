@@ -84,7 +84,7 @@ h1, h2, h3{
 	.logo{
 		float:left;
     display:inline-block;
-    margin-left: 5px;
+    margin-left: 16px;
     margin-bottom: 0;
     max-height: 75px;
     @media (max-width: 640px){
@@ -94,6 +94,7 @@ h1, h2, h3{
     h1{
       color:$darkblue;
       font-family: 'Roboto Slab', serif;
+      font-weight: 300;
       @media (max-width: 640px){
         margin: 0;
       }
