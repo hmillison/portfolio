@@ -279,12 +279,27 @@ h1, h2, h3{
     > {
       .timeline-panel {
         width: 46%;
+        height: 132px;
+        background: #FAFAFA;
         float: left;
         border: 1px solid #d4d4d4;
         border-radius: 2px;
         padding: 20px;
         position: relative;
         @include material-shadow();
+        &.desc{
+            display: none;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.35s;
+            z-index: 2;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            &:hover{
+              opacity: 1;
+            }
+        }
         &:before {
           position: absolute;
           top: 26px;
@@ -329,6 +344,9 @@ h1, h2, h3{
     }
     &.timeline-inverted > .timeline-panel {
       float: right;
+      &.desc{
+        right: 0;
+      }
       &:before {
         border-left-width: 0;
         border-right-width: 15px;
@@ -378,6 +396,9 @@ h1, h2, h3{
       }
       .timeline-panel {
         float: right;
+        &.desc{
+          display: none;
+        }
         &:before {
           border-left-width: 0;
           border-right-width: 15px;
